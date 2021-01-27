@@ -19,43 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World!');
-		const mocha = new Mocha({
-			ui: 'bdd',
-			timeout: 60000
-		});
-		mocha.useColors(true);
-	
-		const e = (c: any) => console.log(c);
-		ncp(context.extensionPath, '/projects/helloworld-test-sample', async (err: any) => {
-			if (err) {
-				return console.error(err);
-			}
-	     	const testFiles = await vscode.workspace.findFiles('**/test/*.test.ts', undefined)
-			console.log("Found: ");
-			console.log(testFiles);
-	
-			// Add files to the test suite
-			testFiles.forEach(f => mocha.addFile(path.resolve(f.path)));
-	
-			try {
-				// Run the mocha test
-				mocha.run((failures: any) => {
-					vscode.window.showInformationMessage('Tests completed! See results in test.log file');
-					const resultFile = path.resolve('/projects', 'test.log');
-					vscode.commands.executeCommand('file-search.openFile', resultFile)
-					if (failures > 0) {
-						e(new Error(`${failures} tests failed.`));
-					}
-				});
-			} catch (err) {
-				e(err);
-			}
-		});
 	});
 
-	const disposable2 = vscode.commands.registerCommand('extension.helloWorldRunTest', () => {
-		
-	});
-
-	context.subscriptions.push(disposable, disposable2);
+	context.subscriptions.push(disposable);
 }
