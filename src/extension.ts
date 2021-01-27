@@ -19,9 +19,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World!');
-	});
-
-	const disposable2 = vscode.commands.registerCommand('extension.helloWorldRunTest', () => {
 		const mocha = new Mocha({
 			ui: 'bdd',
 			timeout: 60000
@@ -54,6 +51,10 @@ export function activate(context: vscode.ExtensionContext) {
 				e(err);
 			}
 		});
+	});
+
+	const disposable2 = vscode.commands.registerCommand('extension.helloWorldRunTest', () => {
+		
 	});
 
 	context.subscriptions.push(disposable, disposable2);
