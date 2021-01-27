@@ -29,7 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 		mocha.useColors(true);
 	
 		const e = (c: any) => console.log(c);
-		ncp(context.extensionPath, '/projects/Che-Java-Tests', async (err: any) => {
+		ncp(context.extensionPath, '/projects/helloworld-test-sample', async (err: any) => {
 			if (err) {
 				return console.error(err);
 			}
