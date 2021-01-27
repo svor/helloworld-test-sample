@@ -12,4 +12,4 @@ category: Language
 firstPublicationDate: "2020-08-20"
 spec:
   extensions:
-    - https://github.com/che-incubator/che-java-tests/raw/master/che_java_test_theia_plugin.theia
+    - https://raw.githubusercontent.com/svor/helloworld-test-sample/main/helloworld-sample-0.0.1.vsix
